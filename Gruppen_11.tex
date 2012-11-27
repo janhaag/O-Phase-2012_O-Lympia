@@ -1,0 +1,35 @@
+\documentclass{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage{multirow}
+\usepackage[left=2.0cm, right=2.0cm, top=3.0cm]{geometry}
+
+\newcommand{\replicate}[2]{\ifnum#1>0 #2
+	\expandafter\replicate\expandafter{\number\numexpr#1-1}{#2}\fi}
+
+\newcounter{ctr} \setcounter{ctr}{1}
+
+\newcommand{\groupsheet}[1]{
+\begin{center}
+\textbf{\Huge Gruppe #1\arabic{ctr}}\\[2em]
+\textbf{\LARGE O-Phasen-Gruppe: \underline{\hspace{10cm}}}\\[4em]
+\end{center}
+\textbf{\Large Spielplan:}\\[1em]
+\includegraphics[scale=0.65]{spielplan_11.png}
+\clearpage}
+
+\pagestyle{empty}
+
+\begin{document}
+\replicate{11}{
+\groupsheet{A}
+\groupsheet{B}
+\stepcounter{ctr}
+}
+\end{document}
